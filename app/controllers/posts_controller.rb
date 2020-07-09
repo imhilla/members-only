@@ -8,10 +8,14 @@ class PostsController < ApplicationController
 	def create
 		@post = current_user.posts.build(post_params)
 		if @post.save
-			redirect_to new_post_path, notice: 'Post was succesfully created.'
+			redirect_to root_path, notice: 'Post was succesfully created.'
 		else 
 			render 'new'
 		end
+	end
+
+	def index
+		@posts = Post.all
 	end
 
 	private
