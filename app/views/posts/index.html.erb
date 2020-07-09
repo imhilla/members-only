@@ -1,27 +1,31 @@
-<h1>All posts</h1>
+<div class="container d-flex">
+  <div class="flex-column">
+  <h1>All posts</h1>
 
-<ul class="post">
-  <% @posts.each do |post| %>
-  <li>
-    <%= post.body %>
-    <% if user_signed_in? %>
-    <%= post.user.username %>
+  <ul class="post">
+    <% @posts.each do |post| %>
+      <li>
+        <%= post.body %>
+        <% if user_signed_in? %>
+        <p><strong><%= post.user.username %></p></strong>
+        <% end %>
+      </li>
     <% end %>
-  </li>
+  </ul>
+
+  <% if user_signed_in? %>
+  <%= link_to "Create a new post", new_post_path,class: "new_post" %>
+  <p>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  </p>
+  <% else %>
+
+  <p>
+    <%= link_to "Signin", user_session_path, method: :post %>
+  </p>
+  <p>
+    <%= link_to "Sign up", new_user_registration_path %>
+  </p>
   <% end %>
-</ul>
-
-<% if user_signed_in? %>
-<%= link_to "Create a new post", new_post_path,class: "new_post" %>
-<p>
-  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-</p>
-<% else %>
-
-<p>
-  <%= link_to "Signin", user_session_path, method: :post %>
-</p>
-<p>
-  <%= link_to "Sign up", new_user_registration_path %>
-</p>
-<% end %>
+</div>
+</div>
