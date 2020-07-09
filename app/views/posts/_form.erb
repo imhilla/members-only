@@ -1,0 +1,7 @@
+
+
+<%= form_for @post do |f| %>
+	<%= f.label :body, 'Body' %>
+  <%= f.text_area :body, placeholder: "Please add your post" %>
+  <%= f.submit "Submit" %>
+<% end %>
