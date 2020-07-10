@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create]
+
+  before_action :user_authenticate_changed, only: %i[new create]
 
   def new
     @post = current_user.posts.build
