@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MembersOnly</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>MembersOnly</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-   <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </body>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= yield %>
+  <div class="container">
+    <% if user_signed_in? %>
+    <p>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+    </p>
+    <% else %>
+
+    <p>
+      <%= link_to "Sign in", user_session_path, method: :post %>
+    </p>
+    <p>
+      <%= link_to "Sign up", new_user_registration_path %>
+    </p>
+    <% end %>
+  </div>
+</body>
+
 </html>

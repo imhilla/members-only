@@ -11,21 +11,9 @@
         <% end %>
       </li>
     <% end %>
-  </ul>
-
-  <% if user_signed_in? %>
-  <%= link_to "Create a new post", new_post_path,class: "new_post" %>
-  <p>
-    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-  </p>
-  <% else %>
-
-  <p>
-    <%= link_to "Signin", user_session_path, method: :post %>
-  </p>
-  <p>
-    <%= link_to "Sign up", new_user_registration_path %>
-  </p>
+ </ul>
+ <% if user_signed_in? %>
+    <%= link_to "Create a new post", new_post_path,class: "new_post" %>
   <% end %>
-</div>
+  </div>
 </div>
