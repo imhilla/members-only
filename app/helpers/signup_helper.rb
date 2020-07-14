@@ -4,8 +4,9 @@ module SignupHelper
   end
 
   def resource
-    @user ||= User.new
+    @resource ||= User.new
   end
+
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end

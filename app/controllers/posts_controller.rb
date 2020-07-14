@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   before_action :user_authenticate_changed, only: %i[new create]
 
   def new
