@@ -4046,3 +4046,30 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 79ms (Views: 76.0ms | ActiveRecord: 2.3ms)
 
 
+Started GET "/" for ::1 at 2020-07-14 13:34:10 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/hasan/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:6
+  Rendered posts/index.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 596ms (Views: 574.6ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/sign_up" for ::1 at 2020-07-14 13:34:13 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 240ms (Views: 170.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/signup/new" for ::1 at 2020-07-14 13:34:14 +0300
+Processing by SignupController#new as HTML
+  Rendering signup/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (1.5ms)
+  Rendered devise/shared/_links.html.erb (6.2ms)
+  Rendered signup/new.html.erb within layouts/application (53.0ms)
+Completed 200 OK in 106ms (Views: 101.9ms | ActiveRecord: 0.0ms)
+
+
