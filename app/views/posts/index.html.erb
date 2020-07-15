@@ -1,0 +1,19 @@
+<div class="container d-flex">
+    <div class="flex-column">
+        <h1>All posts</h1>
+
+        <ul class="post">
+            <% @posts.each do |post| %>
+            <li>
+                <%= post.body %>
+                <% if user_signin? %>
+                <p><strong><%= post.user.username %></p></strong>
+                <% end %>
+            </li>
+            <% end %>
+        </ul>
+        <% if user_signin? %>
+        <%= link_to "Create a new post", new_post_path,class: "new_post" %>
+        <% end %>
+    </div>
+</div>
